@@ -1,2 +1,8 @@
 typings
 .idea
+.vscode
+node_modules
+dist/
+js/
+.vscode/
+src/**/*.js*
