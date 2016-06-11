@@ -109,9 +109,9 @@ declare module tableau {
         dataType: tDataType;
         aggType?: tAggType;
         alias?: string;
+        description?: string;
         columnRole?: tColumnRole;
         columnType?: tColumnType;
-        description?: string;
         geographicRole?: tGeographicRole;
         numberFormat?: tNumberFormat;
         unitsFormat?: tUnitsFormat;
