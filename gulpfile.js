@@ -52,7 +52,7 @@ gulp.task('clean-dist', function() {
 });
 
 gulp.task('copy-html', function() {
-    gulp.src('./*.{csv,html}')
+    gulp.src('./pages/*.{csv,html}')
         .pipe(gulp.dest('./dist/'));
 });
 
@@ -64,7 +64,7 @@ gulp.task('pack', ['copy-html', 'compile-ts'], function() {
 
 gulp.task('watch', ['clean-dist'], function() {
     gulp.watch(config.allTypeScript, ['pack']);
-    gulp.watch('./*.{csv,html}', ['copy-html']);
+    gulp.watch('./pages/*.{csv,html}', ['copy-html']);
 });
 
 gulp.task('default', ['ts-lint', 'pack']);
