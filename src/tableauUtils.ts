@@ -10,7 +10,7 @@ export module tableauUtils
         setDescription(description: string): TableInfoFluent;
     }
 
-    class TableInfoFluentClass implements  TableInfoFluent {
+    class TableInfoFluentClass implements TableInfoFluent {
         id: string;
         columns: tableau.ColumnInfo[];
         defaultAlias: string;
@@ -113,4 +113,53 @@ export module tableauUtils
     export function Column(id: string, type: tableau.tDataType): ColumnInfoFluent {
         return new ColumnInfoFluentClass(id, type);
     }
+
+    export interface WebDataConnectorFluent extends tableau.WebDataConnector {
+        addTable(tableInfo: tableau.TableInfo): WebDataConnectorFluent;
+        setGetDataFunction(getData:(table: tableau.Table, doneCallback: tableau.DataDoneCallback) => void): WebDataConnectorFluent
+        register(): WebDataConnectorFluent;
+    }
+
+    class WebDataConnectorFluentClass implements WebDataConnectorFluent {
+        tables:tableau.TableInfo[];
+
+        constructor() {
+            var temp = tableau.makeConnector();
+            this.init = temp.init;
+            this.shutdown = temp.shutdown;
+
+            this.tables = [];
+        }
+
+        init(initCallBack: tableau.InitCallback) {}
+        shutdown(shutdownCallback: tableau.ShutdownCallback) {}
+
+        getData(table: tableau.Table, doneCallback: tableau.DataDoneCallback) {
+            doneCallback();
+        }
+
+        getSchema(schemaCallback: tableau.SchemaCallback) {
+            schemaCallback(this.tables);
+        }
+
+        addTable(tableInfo: tableau.TableInfo) {
+            this.tables.push(tableInfo);
+            return this;
+        }
+
+        setGetDataFunction(getData:(table: tableau.Table, doneCallback: tableau.DataDoneCallback) => void) {
+            this.getData = getData;
+            return this;
+        }
+
+        register() {
+            tableau.registerConnector(this);
+            return this;
+        }
+    }
+
+    export function Connector(): WebDataConnectorFluent{
+        return new WebDataConnectorFluentClass();
+    }
+
 }

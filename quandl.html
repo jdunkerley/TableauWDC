@@ -11,23 +11,25 @@
 <div class="container container-table">
     <div class="row">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="currencies.html">Currencies/Countries</a></li>
-            <li role="presentation"><a href="quandl.html">Quandl</a></li>
+            <li role="presentation" class="active"><a href="quandl.html">Quandl</a></li>
         </ul>
     </div>
     <div class="row vertical-center-row">
-        <div class="text-center col-md-8 col-md-offset-2">
-            <p>Select a web data connector:</p>
-            <ul>
-                <li><strong>Currencies / Countries</strong> : Web data connector providing ISO list of currencies and countries</p></li>
-                <li><strong>Quandl</strong> : Quandl v3 API</p></li>
-            </ul>
-
+        <p>&nbsp;</p>
+        <p>Quandl Database List</p>
+        <div class="text-center col-md-4 col-md-offset-4">
+            <button id="submitButton" type="button">Get Database List</button>
         </div>
     </div>
 </div>
 
+<script src="https://connectors.tableau.com/libs/tableauwdc-2.0.0-beta.js"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="app.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", window.setupQuandl);
+</script>
 </body>
-
 </html>

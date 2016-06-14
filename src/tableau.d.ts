@@ -96,7 +96,7 @@ declare module tableau {
     export interface ShutdownCallback {
         (): void
     }
-
+    
     export interface WebDataConnector {
         getData(table: Table, doneCallback: DataDoneCallback): void;
         getSchema(schemaCallback: SchemaCallback): void;

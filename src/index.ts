@@ -4,6 +4,7 @@
 /// <reference path="./tableau.d.ts" />
 /// <reference path="../typings/index.d.ts" />
 import { currenciesAndCountriesConnector } from "./CurrenciesAndCountriesConnector";
+import { quandlConnector } from "./QuandlConnector";
 
 function getUserAgentAndVersion(): void {
     d3.select("#user-agent").text(window["tableauVersionBootstrap"]);
@@ -16,6 +17,9 @@ function getUserAgentAndVersion(): void {
 }
 
 window["setupCurrenciesAndCountries"] = () => {
-    getUserAgentAndVersion();
     currenciesAndCountriesConnector.wireUpCurrencyAndIsoButton(d3.select("#submitButton"));
+};
+
+window["setupQuandl"] = () => {
+    quandlConnector.wireUpDatabasesButton(d3.select("#submitButton"));
 };
