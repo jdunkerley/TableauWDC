@@ -3,6 +3,8 @@
     "debug": "registry:npm/debug#2.0.0+20160511151334"
   },
   "globalDependencies": {
-    "d3": "registry:dt/d3#0.0.0+20160514171929"
+    "d3": "registry:dt/d3#0.0.0+20160514171929",
+    "react": "registry:dt/react#0.14.0+20160602151522",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
   }
 }

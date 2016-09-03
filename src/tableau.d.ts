@@ -81,6 +81,18 @@ declare module tableau {
         percentage: tNumberFormat;
     }
 
+    export type tLocale = "en-us" | "pt-br" | "zh-cn" | "fr-fr" | "de-de" | "ja-jp" | "ko-kr" | "es-es";
+    export interface LocaleEnum {
+        america: tLocale;
+        brazil: tLocale;
+        china: tLocale;
+        france: tLocale;
+        germany: tLocale;
+        japan: tLocale;
+        korea: tLocale;
+        spain: tLocale;
+    }
+
     export interface DataDoneCallback {
         (): void
     }
@@ -142,6 +154,7 @@ declare module tableau {
     var columnTypeEnum : ColumnTypeEnum;
     var aggTypeEnum: AggTypeEnum;
     var geographicRoleEnum: GeographicRoleEnum;
+    var localeEnum: LocaleEnum;
     var unitsFormatEnum: UnitsFormatEnum;
     var numberFormatEnum: NumberFormatEnum;
 
@@ -160,6 +173,7 @@ declare module tableau {
 
     var connectionName: string;
     var connectionData: any;
+    var locale: string;
     var username: string;
     var password: any;
 }

@@ -22,4 +22,5 @@ window["setupCurrenciesAndCountries"] = () => {
 
 window["setupQuandl"] = () => {
     quandlConnector.wireUpDatabasesButton(d3.select("#submitButton"));
+    d3.select("#apiKey").on()
 };
